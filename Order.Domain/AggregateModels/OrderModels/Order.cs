@@ -1,10 +1,5 @@
 ﻿using Order.Domain.Events;
 using Order.Domain.SeedWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Order.Domain.AggregateModels.OrderModels
 {
@@ -41,7 +36,7 @@ namespace Order.Domain.AggregateModels.OrderModels
             Address = address ?? throw new ArgumentNullException(nameof(address));
             OrderItems = orderItems ?? throw new ArgumentNullException(nameof(orderItems));
 
-            //baseentity'den buyer username boş ise event fırlat ve eventta yakalayıp yeni bir buyur oluştur
+            //baseentity'den buyer username boş ise event fırlat ve mediatr ile yakalayıp yeni bir buyer oluştur
             AddDomainEvents(new OrderStartedDomainEvent(userName, this));
         }
 

@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Order.Domain.SeedWork
+﻿namespace Order.Domain.SeedWork
 {
     public abstract class ValueObject
     {
-        /// <summary>
-        /// iki value objenin bir birlerine eşit olduğunu kontrol eder
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
+          
         protected static bool EqualOperator(ValueObject left, ValueObject right)
         {
             if (ReferenceEquals(left, null) ^ ReferenceEquals(right, null))
@@ -23,13 +12,7 @@ namespace Order.Domain.SeedWork
 
             return ReferenceEquals(left, null) || left.Equals(right);
         }
-
-        /// <summary>
-        /// iki value objenin bir birlerine eşit olmadığını kontrol eder
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
+ 
         protected static bool NotEqualOperator(ValueObject left, ValueObject right)
         {
             return !EqualOperator(left, right);
@@ -49,10 +32,7 @@ namespace Order.Domain.SeedWork
             return GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
         }
 
-        /// <summary>
-        /// Hash Code 'un geneare edilip edilmediğini kontrol ediyorz
-        /// </summary>
-        /// <returns></returns>
+        
         public override int GetHashCode()
         {
             return GetEqualityComponents()

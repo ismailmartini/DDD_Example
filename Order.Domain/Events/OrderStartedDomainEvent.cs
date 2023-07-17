@@ -1,9 +1,4 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Order.Domain.Events
 {
@@ -18,6 +13,8 @@ namespace Order.Domain.Events
         {
             UserName = userName;
             Order = order ?? throw new ArgumentNullException(nameof(order));
+
+            
         }
 
 
